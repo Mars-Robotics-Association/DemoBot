@@ -5,11 +5,13 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
 
 @Autonomous(name = "AutoTesting", group = "Autonomous")
 public class AutoTesting extends OpMode
 {
-    private DcMotor DriveL = null; //main drive program should NOT be modified. implement claw/shooting systems from existing.
+    private DcMotor DriveL = null;
     private DcMotor DriveR = null;
     private DcMotor ShooterL = null;
     private DcMotor ShooterR = null;
@@ -24,7 +26,6 @@ public class AutoTesting extends OpMode
 
         DriveL = hardwareMap.dcMotor.get("left_drive");
         DriveR = hardwareMap.dcMotor.get("right_drive");
-
         ShooterL = hardwareMap.dcMotor.get("shooterl");
         ShooterR = hardwareMap.dcMotor.get("shooterr");
         Intake = hardwareMap.dcMotor.get("intake_drive                                                                                                                                                                                  ");
@@ -35,18 +36,25 @@ public class AutoTesting extends OpMode
 
     @Override
 
-    public void loop(){
-
-        
-    }
-
 
     public void start()
     {
 
 
+    DriveL.setPower(1);
+    DriveR.setPower(-1);
+
+        sleep(1000);
+    }
 
 
+
+    @Override
+    public void loop() {
 
     }
+
+
+
+
 }
