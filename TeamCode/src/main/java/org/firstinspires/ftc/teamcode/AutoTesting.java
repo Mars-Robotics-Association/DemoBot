@@ -44,7 +44,7 @@ public class AutoTesting extends OpMode
     DriveL.setPower(1);
     DriveR.setPower(-1);
 
-        sleep(1000);
+      //  sleep(1000);
     }
 
 
