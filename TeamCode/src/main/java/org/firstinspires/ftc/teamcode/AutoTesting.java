@@ -6,10 +6,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import static java.lang.Thread.sleep;
+
 @Autonomous(name = "AutoTesting", group = "Autonomous")
 public class AutoTesting extends OpMode
 {
-    private DcMotor DriveL = null; //main drive program should NOT be modified. implement claw/shooting systems from existing.
+    private DcMotor DriveL = null;
     private DcMotor DriveR = null;
     private DcMotor ShooterL = null;
     private DcMotor ShooterR = null;
@@ -44,9 +46,19 @@ public class AutoTesting extends OpMode
     public void start()
     {
 
+        DriveL.setPower(1);
+        DriveR.setPower(1);
 
 
+        try {
+            sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+
+        DriveL.setPower(-1);
+        DriveR.setPower(1);
 
     }
 }
