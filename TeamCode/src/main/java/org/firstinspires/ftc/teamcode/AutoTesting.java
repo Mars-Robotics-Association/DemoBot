@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
 
 import static java.lang.Thread.sleep;
 
@@ -26,7 +28,6 @@ public class AutoTesting extends OpMode
 
         DriveL = hardwareMap.dcMotor.get("left_drive");
         DriveR = hardwareMap.dcMotor.get("right_drive");
-
         ShooterL = hardwareMap.dcMotor.get("shooterl");
         ShooterR = hardwareMap.dcMotor.get("shooterr");
         Intake = hardwareMap.dcMotor.get("intake_drive                                                                                                                                                                                  ");
@@ -37,11 +38,6 @@ public class AutoTesting extends OpMode
 
     @Override
 
-    public void loop(){
-
-        
-    }
-
 
     public void start()
     {
@@ -50,15 +46,30 @@ public class AutoTesting extends OpMode
         DriveR.setPower(1);
 
 
+<<<<<<< HEAD
         try {
             sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+=======
+    DriveL.setPower(1);
+    DriveR.setPower(-1);
+
+      //  sleep(1000);
+    }
+>>>>>>> master
 
 
         DriveL.setPower(-1);
         DriveR.setPower(1);
 
+    @Override
+    public void loop() {
+
     }
+
+
+
+
 }
