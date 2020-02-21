@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-@TeleOp(name="demoTeleop", group="Iterative Opmode")
+@TeleOp(name="demoServoTest", group="Iterative Opmode")
 //@Disabled
 
 public class MarsNewYearDemoTeleop extends OpMode {
@@ -21,6 +21,8 @@ public class MarsNewYearDemoTeleop extends OpMode {
     private DcMotor ShooterR = null;
     private DcMotor Intake = null;
     private Servo  Gate= null;
+        private Servo  Test1= null;
+            private Servo  Test2= null;
     private Servo Feeder = null;
     // private NormalizedColorSensor colorSensor = null
     double a;
@@ -61,6 +63,8 @@ public class MarsNewYearDemoTeleop extends OpMode {
         Intake = hardwareMap.dcMotor.get("intake_drive                                                                                                                                                                                  ");
         Feeder = hardwareMap.servo.get("feeder");
         Gate = hardwareMap.servo.get("stopper");
+                Test1 = hardwareMap.servo.get("test1");
+        Test2 = hardwareMap.servo.get("test2");
 
     }
 
@@ -113,6 +117,16 @@ public class MarsNewYearDemoTeleop extends OpMode {
         double threshold = 0.05;
         telemetry.addData("gp1_lstick_x", "value %f", b);
         telemetry.addData("gp1_lstick_y", "value %f", a);
+
+                if (gamepad1.right_trigger > 0.5) {
+Test1.setDirection(1);
+                    Test2.setDirection(1);
+        }
+        if (gamepad1.left_trigger > 0.5) {
+         Test1.setDirection(0);
+            Test2.setDirection(0);
+        }
+        
 
         /*if (b < -threshold)//Turn left
         {
@@ -216,12 +230,7 @@ public class MarsNewYearDemoTeleop extends OpMode {
             }while(getRuntime() >= speed + 2);*/
 
 
-        if (gamepad1.right_trigger > 0.5) {
-            Gate.setPosition(30);
-        }
-        if (gamepad1.left_trigger > 0.5) {
-            Gate.setPosition(0);
-        }
+
 
 
 /*    if(gamepad2.x){
